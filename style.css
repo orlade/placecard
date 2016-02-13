@@ -1,0 +1,72 @@
+/* Font not included in repository. BYO or choose a different one. */
+@font-face {
+  font-family: 'Zapfino';
+  src: url("ZapfinoExtraLT-Four.otf") format("opentype");
+}
+
+/* Landscape layout. */
+.a4 {width: 297mm; height: 201mm;}
+.a3 {width: 420mm}
+.a2 {width: 594mm}
+.a1 {width: 841mm}
+.a0 {width: 1189mm}
+
+.page {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  border-bottom: thin dashed #f0f0f0;
+  border-right: thin dashed #f0f0f0;
+}
+
+.card {
+  width: 33%;
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+  border-top: thin dashed #f0f0f0;
+  border-left: thin dashed #f0f0f0;
+  flex-grow: 1;
+}
+
+.side {
+  width: 100%;
+  height: 50%;
+  flex-grow: 1;
+  text-align: center;
+  font-size: 72pt;
+  font-family: 'Zapfino';
+}
+.side:last-child {
+  border-top: thin dashed #f0f0f0;
+  background: linear-gradient(to bottom, rgba(255,255,255,0.7) 0%,rgba(255,255,255,0.7) 100%), url('images/decoration.png') calc(100% - 10px) 10px / 55px no-repeat rgba(255,255,255,0.5);
+}
+/* Vertical text alignment magic. */
+.side:before {
+  content: "";
+  display: inline-block;
+  height: 120%;
+  vertical-align: middle;
+}
+
+.decoration {
+  position: relative;
+  display: block;
+  top: 5px;
+  left: 5px;
+  width: 30px;
+}
+
+#input {
+  text-align: center;
+}
+textarea {
+  width: 50%;
+  height: 100px;
+  font-size: 12pt;
+}
+
+@media print {
+  .page {page-break-after: always;}
+  #cards {page-break-before: always;}
+}
