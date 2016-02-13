@@ -1,7 +1,7 @@
 /* Font not included in repository. BYO or choose a different one. */
 @font-face {
   font-family: 'Zapfino';
-  src: url("ZapfinoExtraLT-Four.otf") format("opentype");
+  src: url("fonts/ZapfinoExtraLT-Four.otf") format("opentype");
 }
 
 /* Landscape layout. */

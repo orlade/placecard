@@ -1,51 +1,17 @@
 <head>
-  <style>
-
-  </style>
-
+  <link rel="stylesheet" href="style.css" />
   <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
 </head>
 
 <body>
-  <script>
-  function update(event) {
-    var names = event.target.value.split('\n').map(function (name) {
-      return name.trim();
-    });
-    console.debug('Creating cards for', names.length, 'names...');
-    $('#cards').empty();
-
-    var page = null;
-    var addCard = function (name) {
-      page.append(
-        $('<div class="card"></div>')
-          .append('<div class="side"></div>')
-          .append('<div class="side">' + name + '</div>')
-      );
-    }
-
-    names.forEach(function(name, index) {
-      if (index % 6 === 0) {
-        page = $('<div class="a4 page"></div>').appendTo('#cards');
-      }
-      addCard(name);
-    });
-
-    var extra = names.length % 6 ? 6 - names.length % 6 : 0;
-    console.debug('Adding', extra, 'extra cards...');
-    while (extra > 0) {
-      addCard('');
-      extra--;
-    }
-  }
-  </script>
+  <script src="src/placecard.js"></script>
 
   <div id="input">
     <h1>Place Card Generator</h1>
 
     <p>Enter the names of your guests, one per line.</p>
 
-    <textarea id="names" oninput='update(event)'>a\nb</textarea>
+    <textarea id="name_input" oninput='update()'></textarea>
 
     <p>Then print from your browser, and select all pages except the first.
     Select A4 paper size and set margins to Minimum.</p>
